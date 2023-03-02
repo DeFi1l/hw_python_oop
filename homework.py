@@ -75,10 +75,11 @@ class Running(Training):
     def get_spent_calories(self) -> float:
         """Получить количество потраченных калорий"""
 
-        calo = ((self.CALORIES_MEAN_SPEED_MULTIPLIER * self.get_mean_speed() +
-                self.CALORIES_MEAN_SPEED_SHIFT) *
-                self.weight / self.M_IN_KM *
-                (self.MIN_IN_HOUR * self.duration))
+        calo = ((self.CALORIES_MEAN_SPEED_MULTIPLIER
+                * self.get_mean_speed()
+                + self.CALORIES_MEAN_SPEED_SHIFT)
+                * self.weight / self.M_IN_KM
+                * (self.MIN_IN_HOUR * self.duration))
         return calo
 
 
@@ -96,10 +97,11 @@ class SportsWalking(Training):
     def get_spent_calories(self) -> float:
         """Получить количество потраченных калорий"""
 
-        calo = ((self.CALORIES_MEAN_SPORT_WALK_MULTIPLIER * self.weight +
-                 (self.get_mean_speed()**2 / self.height) *
-                self.CALORIES_MEAN_SPORT_WALK1_MULTIPLIER * self.weight) *
-                self.duration * self.MIN_IN_HOUR)
+        calo = ((self.CALORIES_MEAN_SPORT_WALK_MULTIPLIER
+                * self.weight
+                + (self.get_mean_speed()**2 / self.height)
+                * self.CALORIES_MEAN_SPORT_WALK1_MULTIPLIER * self.weight)
+                * self.duration * self.MIN_IN_HOUR)
         return calo
 
 
@@ -119,18 +121,18 @@ class Swimming(Training):
     def get_spent_calories(self):
         """Получить количество потраченных калорий"""
 
-        swim_calo = ((self.get_mean_speed() +
-                      self.CALORIES_MEAN_SWIM_MULTIPLIER) *
-                     self.CALORIES_MEAN_SWIM1_MULTIPLIER *
-                     self.weight *
-                     self.duration)
+        swim_calo = ((self.get_mean_speed()
+                     + self.CALORIES_MEAN_SWIM_MULTIPLIER)
+                     * self.CALORIES_MEAN_SWIM1_MULTIPLIER
+                     * self.weight
+                     * self.duration)
         return swim_calo
 
     def get_mean_speed(self):
         """Получить среднюю скорость движения."""
 
-        swim_spd = (self.length_pool * self.count_pool / self.M_IN_KM /
-                    self.duration)
+        swim_spd = (self.length_pool * self.count_pool / self.M_IN_KM
+                    / self.duration)
         return swim_spd
 
 
