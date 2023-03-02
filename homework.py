@@ -97,8 +97,8 @@ class SportsWalking(Training):
         """Получить количество потраченных калорий"""
 
         calo = ((self.CALORIES_MEAN_SPORT_WALK_MULTIPLIER * self.weight +
-                 (self.get_mean_speed()**2 / self.height)
-                * self.CALORIES_MEAN_SPORT_WALK1_MULTIPLIER * self.weight) *
+                 (self.get_mean_speed()**2 / self.height) *
+                self.CALORIES_MEAN_SPORT_WALK1_MULTIPLIER * self.weight) *
                 self.duration * self.MIN_IN_HOUR)
         return calo
 
@@ -121,7 +121,8 @@ class Swimming(Training):
 
         swim_calo = ((self.get_mean_speed() +
                       self.CALORIES_MEAN_SWIM_MULTIPLIER) *
-                     self.CALORIES_MEAN_SWIM1_MULTIPLIER * self.weight *
+                     self.CALORIES_MEAN_SWIM1_MULTIPLIER *
+                     self.weight *
                      self.duration)
         return swim_calo
 
@@ -136,7 +137,7 @@ class Swimming(Training):
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
 
-    training_dict:  Dict[str, Type[Training]] = {
+    training_dict: Dict[str, Type[Training]] = {
         'SWM': Swimming,
         'RUN': Running,
         'WLK': SportsWalking}
