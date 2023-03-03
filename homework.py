@@ -101,7 +101,7 @@ class SportsWalking(Training):
 
         calo = ((self.CALORIES_MEAN_SPORT_WALK_MULTIPLIER
                 * self.weight
-                + (self.get_mean_speed()**2 // self.height)
+                + (self.get_mean_speed()**2 / self.CM_IN_M / self.height)
                 * self.CALORIES_MEAN_SPORT_WALK1_MULTIPLIER * self.weight)
                 * self.duration * self.MIN_IN_HOUR)
         return calo
