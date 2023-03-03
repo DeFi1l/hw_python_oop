@@ -21,7 +21,7 @@ class InfoMessage:
         msg: str = (f'Тип тренировки: {self.training_type}; '
                     f'Длительность: {self.duration:.3f} ч.; '
                     f'Дистанция: {self.distance:.3f} км; '
-                    f'Ср. скорость: {self.speed:.3f} км/ч;'
+                    f'Ср. скорость: {self.speed:.3f} км/ч; '
                     f'Потрачено ккал: {self.calories:.3f}.')
 
         return msg
@@ -89,6 +89,7 @@ class SportsWalking(Training):
     CALORIES_MEAN_SPORT_WALK_MULTIPLIER = 0.035
     CALORIES_MEAN_SPORT_WALK1_MULTIPLIER = 0.029
     KM_PER_HOUR_TO_M_PER_SEC = 0.278
+    CM_IN_M = 100
 
     def __init__(self, action: int, duration: float,
                  weight: float, height: float) -> None:
