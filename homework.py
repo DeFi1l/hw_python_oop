@@ -31,7 +31,7 @@ class InfoMessage:
 class Training:
     """Базовый класс тренировки."""
 
-    LEN_STEP = 0.65
+    LEN_STEP: float = 0.65
     M_IN_KM: Final[float] = 1000
     MIN_IN_HOUR: Final[float] = 60
 
@@ -114,7 +114,7 @@ class Swimming(Training):
 
     CALORIES_MEAN_SPEED_SHIFT: Final[float] = 1.1
     CALORIES_WEIGHT_MULTIPLIER: Final[int] = 2
-    LEN_STEP = 1.38
+    LEN_STEP: float = 1.38
 
     def __init__(self, action: int, duration: float, weight: float,
                  length_pool: float, count_pool: int) -> None:
