@@ -88,7 +88,7 @@ class SportsWalking(Training):
 
     CALORIES_MEAN_SPORT_WALK_MULTIPLIER = 0.035
     CALORIES_MEAN_SPORT_WALK1_MULTIPLIER = 0.029
-    KM_PER_HOUR_TO_M_PER_SEC = 0.278
+    KM_IN_MS = 0.278
     CM_IN_M = 100
 
     def __init__(self, action: int, duration: float,
@@ -101,7 +101,8 @@ class SportsWalking(Training):
 
         calo = ((self.CALORIES_MEAN_SPORT_WALK_MULTIPLIER
                 * self.weight
-                + (self.get_mean_speed()**2 / self.CM_IN_M / self.height)
+                + ((self.get_mean_speed() * self.KM_IN_MS)**2
+                 / self.height / self.CM_IN_M)
                 * self.CALORIES_MEAN_SPORT_WALK1_MULTIPLIER * self.weight)
                 * self.duration * self.MIN_IN_HOUR)
         return calo
